@@ -3,6 +3,11 @@
 
 // With help from https://stackoverflow.com/questions/7275597/getting-the-selected-radio-without-using-id-but-name
 
+// Empty friends array
+
+const friends = [];
+
+
 function getNPushValues() {
     document.getElementById("submitBtn").addEventListener("click", function (event) {
         event.preventDefault();
