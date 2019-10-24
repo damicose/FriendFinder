@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FF - Survey</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -359,14 +360,14 @@
         <div class="container"></div>
     </div>
 
-    <!-- This will go somewhere -->
+    <!-- Correctly pulling radio values (as long as all have a value), but getting undefined for nameInput value -->
 
     <script type="text/javascript">
         document.getElementById("submitBtn").addEventListener("click", function (event) {
             event.preventDefault();
-            console.log("You got this far");
+            // console.log(toString(document.getElementById("nameInput").value));
             const newEntry = {
-                nombre: document.getElementById("nameInput").value,
+                nombre: document.getElementById("formGroupExampleInput").value,
                 answers: [
                     document.querySelector('input[name=inlineRadioOptions1]:checked').value,
                     document.querySelector('input[name=inlineRadioOptions2]:checked').value,
@@ -381,9 +382,10 @@
                 ]
             };
             console.log(newEntry);
-            $.post("api/friends", newEntry,
+            app.post("api/friends", newEntry,
                 function (data) {
                     // I believe this is where I'll want to the logic for finding the best friend
+                    // Getting the issue where it doesn't recog "app" or $ ---- need exp/import? move to diffy file
                 })
         });
     </script>
