@@ -5,7 +5,11 @@
 
 // Empty friends array
 
-const friends = [];
+const friendsArr = [];
+
+
+// Looks like this should just be an object template for each friend entry and that js function is nested in HTML file
+// 
 
 
 function getNPushValues() {
@@ -45,3 +49,5 @@ function getNPushValues() {
 };
 
 getNPushValues();
+
+module.exports = friendsJS;

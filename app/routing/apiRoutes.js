@@ -1,4 +1,21 @@
-// Displays all friends ("catch all")
+// ===============================================================================
+// LOAD DATA
+// We are linking our routes to a series of "data" sources.
+// These data sources hold arrays of information on table-data, waitinglist, etc.
+// ===============================================================================
+
+var tableData = require("../data/tableData");
+var waitListData = require("../data/waitinglistData");
+
+// ===============================================================================
+// ROUTING
+// ===============================================================================
+
+module.exports = function(app) {
+  // HTML GET Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases the user is shown an HTML page of content
+  // ---------------------------------------------------------------------------// Displays all friends ("catch all")
 app.get("/api/friends", function (req, res) {
     return res.json(friends);
 });
@@ -16,3 +33,4 @@ app.post("/api/friends", function(req, res) {
   
     res.json(newFriend);
   });
+};
