@@ -20,3 +20,28 @@ app.post("/api/friends", function(req, res) {
   
     // res.json(newCharacter);
   });
+
+// Below is pulled from an HTML script tag so it will need to be reconfig for plain
+
+
+  document.getElementById("add-btn").addEventListener("click", function(event) {
+    event.preventDefault();
+    var newCharacter = {
+      name: document.getElementById("name").value.trim(),
+      role: document.getElementById("role").value.trim(),
+      age: document.getElementById("age").value.trim(),
+      forcePoints: document.getElementById("force-points").value.trim()
+    };
+
+    // Question: What does this code do??
+    fetch("/api/characters", {
+      method: "POST",
+      body: JSON.stringify(newCharacter),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(function(data) {
+        console.log("add.html", data);
+        alert("Adding character...");
+      });
+  });
