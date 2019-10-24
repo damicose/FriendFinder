@@ -359,7 +359,34 @@
         <div class="container"></div>
     </div>
 
-    <script src="../data/friends.js"></script>
+    <!-- This will go somewhere -->
+
+    <script type="text/javascript">
+        document.getElementById("submitBtn").addEventListener("click", function (event) {
+            event.preventDefault();
+            console.log("You got this far");
+            const newEntry = {
+                nombre: document.getElementById("nameInput").value,
+                answers: [
+                    document.querySelector('input[name=inlineRadioOptions1]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions2]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions3]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions4]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions5]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions6]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions7]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions8]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions9]:checked').value,
+                    document.querySelector('input[name=inlineRadioOptions10]:checked').value
+                ]
+            };
+            console.log(newEntry);
+            $.post("api/friends", newEntry,
+                function (data) {
+                    // I believe this is where I'll want to the logic for finding the best friend
+                })
+        });
+    </script>
 </body>
 
 </html>
