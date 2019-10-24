@@ -33,7 +33,6 @@ app.post("/api/friends", function(req, res) {
       forcePoints: document.getElementById("force-points").value.trim()
     };
 
-    // Question: What does this code do??
     fetch("/api/characters", {
       method: "POST",
       body: JSON.stringify(newCharacter),
@@ -45,3 +44,11 @@ app.post("/api/friends", function(req, res) {
         alert("Adding character...");
       });
   });
+
+  function getAnswers() {
+    const activeRadios = document.getElementsByName(rName);
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) return radioButtons[i].value;
+    }
+    return '';
+}

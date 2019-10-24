@@ -322,7 +322,7 @@
 
             <div id="Q10" class="container border mt-3">    
                 I'm hopeful about the future:
-                <div>
+                <div id="10val">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions10" id="inlineRadio1-10"
                             value="1">
@@ -359,12 +359,12 @@
         <div class="container"></div>
     </div>
 
-            
+            <!-- From https://stackoverflow.com/questions/7275597/getting-the-selected-radio-without-using-id-but-name -->
     <script type="text/javascript">
         // Question: What does this code do?
         document.getElementById("submitBtn").addEventListener("click", function(event) {
           event.preventDefault();
-          console.log(document.getElementById("Q10").value);
+          console.log((document.querySelector('input[name=inlineRadioOptions10]:checked').value));
         //   console.log(document.getElementById("").value);
         });
       </script>
