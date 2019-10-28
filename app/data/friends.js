@@ -1,14 +1,9 @@
 // Need to fold this into a post request or something~~
 // Figure out if we're posting and evaluating ("friend finding") in the same function ?? Seems ugly--
 
-// Empty friends array
+// Ladies and gentlemen, this is mambo number 5
 
 const friendArray = [
-    {
-        nombre: "",
-        photo: "",
-        answers: []
-    },
     {
         nombre:"Monica",
         photo:"",

@@ -22,9 +22,28 @@ app.get("/api/friends", function (req, res) {
 
 // Posting route, needs to be reconfigured
 app.post("/api/friends", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    tableData.push(req.body);
-    res.json(true);
+  let user = req.body;
+  let totalAll = [];
+  const bestMatch = {
+      position: 0,
+      best: 100
+  };
+  friendData.forEach(friend => {
+      let answerTotal = 0;
+      for(let i = 0; i<friend.answers.length; i++){
+         answerTotal += Math.abs(parseInt(user.answers[i]) - friend.answers[i]); 
+      }
+      totalAll.push(answerTotal);
+  });
+
+
+  for(let i = 0; i < totalAll.length; i++){
+      if(totalAll[i] < bestMatch.best){
+          bestMatch.position = i;
+          bestMatch.best = totalAll[i];
+          console.log(`Total Score Diff: ${totalAll[i]} Your best match is: ${bestMatch.position}`)
+      }
+  }
+  res.json(friendData[bestMatch.position]);
   });
 };
