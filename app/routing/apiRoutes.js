@@ -20,7 +20,7 @@ app.get("/api/friends", function (req, res) {
     return res.json(friendData);
 });
 
-// Posting route, needs to be reconfigured
+// Posting route, needs to be reconfigured (?)
 app.post("/api/friends", function(req, res) {
   let user = req.body;
   let totalAll = [];

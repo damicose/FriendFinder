@@ -383,10 +383,10 @@
                 ]
             };
             console.log(newEntry);
-            app.post("api/friends", newEntry,
-                function (data) {
-                    // I believe this is where I'll want to the logic for finding the best friend
-                    // Getting the issue where it doesn't recog "app" or $ ---- need exp/import? move to diffy file
+            app.post("api/friends", newEntry,)
+            .then(function (res) {
+                // With help from https://www.w3schools.com/js/tryit.asp?filename=tryjs_prompt
+                alert(`Your best match is ${res.data.nombre}`)
                 })
         });
     </script>
