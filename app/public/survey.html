@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FF - Survey</title>
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -383,7 +384,7 @@
                 ]
             };
             console.log(newEntry);
-            app.post("api/friends", newEntry,)
+            axios.post("api/friends", newEntry,)
             .then(function (res) {
                 // With help from https://www.w3schools.com/js/tryit.asp?filename=tryjs_prompt
                 alert(`Your best match is ${res.data.nombre}`)
